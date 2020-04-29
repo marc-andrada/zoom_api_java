@@ -50,16 +50,16 @@ public class TestBot {
                 testChannels.put("members", testEmails);
                 testChannels.put("type", 1);
                 testChannels.put("name", "channel 1");
-                client.CHAT_CHANNELS.create(testChannels);
+                client.chatChannels.create(testChannels);
                 //Thread.sleep(2000);
                 testChannels.replace("name", "channel 2");
-                client.CHAT_CHANNELS.create(testChannels);
+                client.chatChannels.create(testChannels);
                 //Thread.sleep(2000);
                 testChannels.replace("name", "channel 3");
-                client.CHAT_CHANNELS.create(testChannels);
+                client.chatChannels.create(testChannels);
                 //Thread.sleep(2000);
                 System.out.println("Here are your current channels: ");
-                client.CHAT_CHANNELS.list();
+                client.chatChannels.list();
 
                 System.out.println("Okay we're all set. Look for the most recent [NEXT] to get your next task");
 
@@ -73,37 +73,37 @@ public class TestBot {
                 data.put("members", memberEmails);
                 data.put("name", name);
                 data.put("type", 1);
-                client.CHAT_CHANNELS.create(data);
+                client.chatChannels.create(data);
                 //Thread.sleep(2000);
 
                 //LIST CHANNELS
                 System.out.println("Here is a list of channels including yours: ");
-                System.out.println(client.CHAT_CHANNELS.list());
+                System.out.println(client.chatChannels.list());
                 //Thread.sleep(2000);
 
                 //GET, RENAME, AND DELETE CHANNEL
                 System.out.println("[NEXT] Enter the id of the channel from the list (above) you want to get. Make sure it's correct!");
                 String channelID = in.nextLine();
                 System.out.println("Getting id: " + channelID);
-                client.CHAT_CHANNELS.get(channelID);
+                client.chatChannels.get(channelID);
                 //Thread.sleep(2000);
                 System.out.println("[NEXT] Enter new name for this channel: ");
                 String newChanName = in.nextLine();
-                client.CHAT_CHANNELS.update(channelID, newChanName);
+                client.chatChannels.update(channelID, newChanName);
                 //Thread.sleep(2000);
                 System.out.println("Now we will delete the channel: ");
                 //Thread.sleep(2000);
-                client.CHAT_CHANNELS.delete(channelID);
+                client.chatChannels.delete(channelID);
                 //Thread.sleep(2000);
 
 
                 //LIST CHANNEL MEMBERS
                 System.out.println("[NEXT] Select an id of the channel whose members you want to see from this list:");
-                System.out.println(client.CHAT_CHANNELS.list());
+                System.out.println(client.chatChannels.list());
                 //Thread.sleep(2000);
                 channelID = in.nextLine();
                 System.out.println("Here are the members: ");
-                client.CHAT_CHANNELS.listMembers(channelID);
+                client.chatChannels.listMembers(channelID);
                 //Thread.sleep(2000);
 
                 //INVITE THEN REMOVE MEMBERS
@@ -116,37 +116,37 @@ public class TestBot {
                 emailList.add(emailMap);
                 HashMap<String, Object> memberList = new HashMap<>();
                 memberList.put("members", emailList);
-                client.CHAT_CHANNELS.inviteMembers(channelID, memberList);
+                client.chatChannels.inviteMembers(channelID, memberList);
                 //Thread.sleep(2000);
                 System.out.println("[NEXT] Turns out this member is a spy!! Enter this member's ID (above) so we can remove them!");
                 String memberID = in.nextLine();
-                client.CHAT_CHANNELS.removeMember(channelID, memberID);
+                client.chatChannels.removeMember(channelID, memberID);
                 //Thread.sleep(2000);
 
                 //LEAVE AND JOIN CHANNEL
                 System.out.println("[NEXT] Enter channel ID of channel you want to leave, then rejoin: (see channel list below)");
-                System.out.println(client.CHAT_CHANNELS.list());
+                System.out.println(client.chatChannels.list());
                 //Thread.sleep(2000);
                 String idLeaveRejoin = in.nextLine();
                 System.out.println("Leaving...");
-                client.CHAT_CHANNELS.leave(idLeaveRejoin);
+                client.chatChannels.leave(idLeaveRejoin);
                 //Thread.sleep(2000);
                 System.out.println("Re-joining");
-                client.CHAT_CHANNELS.join(idLeaveRejoin);
+                client.chatChannels.join(idLeaveRejoin);
                 //Thread.sleep(2000);
 
                 //LIST CHAT MESSAGES
                 System.out.println("[NEXT] Enter channel ID or to contact email of channel you want to list messages of (see channel list below)");
-                System.out.println(client.CHAT_CHANNELS.list());
+                System.out.println(client.chatChannels.list());
                 //Thread.sleep(2000);
                 channelID = in.nextLine();
-                client.CHAT_MESSAGES.list("me", null, channelID);
+                client.chatMessages.list("me", null, channelID, null, null);
                 //Thread.sleep(2000);
 
                 //SEND MESSAGE
                 System.out.println("[NEXT] Enter a message to send: ");
                 String message = in.nextLine();
-                client.CHAT_MESSAGES.send(message, null, channelID);
+                client.chatMessages.send(message, null, channelID);
                 //Thread.sleep(2000);
 
                 //UPDATE MESSAGE
@@ -155,12 +155,12 @@ public class TestBot {
                 System.out.println("[NEXT] Enter the updated message: ");
                 String updatedMessage = in.nextLine();
                 System.out.println("Updating...");
-                client.CHAT_MESSAGES.update(messageID, updatedMessage, null, channelID);
+                client.chatMessages.update(messageID, updatedMessage, null, channelID);
                 //Thread.sleep(2000);
 
                 //DELETE MESSAGE
                 System.out.println("Now we'll delete this message...");
-                client.CHAT_MESSAGES.delete(messageID, null, channelID);
+                client.chatMessages.delete(messageID, null, channelID);
                 //Thread.sleep(2000);
 
                 System.out.println("Well, that was fun! Goodbye.");

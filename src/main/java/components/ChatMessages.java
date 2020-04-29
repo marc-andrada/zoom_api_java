@@ -2,7 +2,6 @@ package components;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.http.HttpResponse;
@@ -16,7 +15,7 @@ public class ChatMessages extends Base{
         super(baseUri, timeout, token);
     }
 
-    public String list(String userID, String toContact, String channelID) throws Exception {
+    public String list(String userID, String toContact, String channelID, String date, String nextPageToken) throws Exception {
 
         List<NameValuePair> nvp = new ArrayList<>();
 
@@ -31,6 +30,12 @@ public class ChatMessages extends Base{
             NameValuePair toChannelInfo = new BasicNameValuePair("to_channel", channelID);
             nvp.add(toChannelInfo);
         }
+
+        NameValuePair dateParam = new BasicNameValuePair("date", date);
+        nvp.add(dateParam);
+
+        NameValuePair nextPageTokenParam = new BasicNameValuePair("next_page_token", nextPageToken);
+        nvp.add(nextPageTokenParam);
 
         HttpResponse response = super.getRequest("/chat/users/"+userID+"/messages", nvp);
 

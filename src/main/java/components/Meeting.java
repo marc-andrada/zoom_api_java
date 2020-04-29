@@ -1,11 +1,8 @@
 package components;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Meeting extends Base{
 

@@ -5,13 +5,13 @@ public class ZoomClient extends ApiClient {
 
 
     //Class Components
-    private ChatChannels CHAT_CHANNELS;
-    private ChatMessages CHAT_MESSAGES;
-    private Meeting MEETING;
-    private Report REPORT;
-    private User USER;
-    private Webinar WEBINAR;
-    private Recording RECORDING;
+    private ChatChannels chatChannels;
+    private ChatMessages chatMessages;
+    private Meeting meeting;
+    private Report report;
+    private User user;
+    private Webinar webinar;
+    private Recording recording;
 
     //Fields
     private String API_KEY;
@@ -37,12 +37,12 @@ public class ZoomClient extends ApiClient {
     private String getApiSecret(){return API_SECRET;}
 
     //Component Getters
-    private ChatChannels getChatChannels(){return CHAT_CHANNELS;}
-    private ChatMessages getChatMessages(){return CHAT_MESSAGES;}
-    private Meeting getMEETING(){return MEETING;}
-    private Report getREPORT(){return REPORT;}
-    private User getUSER(){return USER;}
-    private Webinar getWEBINAR(){return WEBINAR;}
-    private Recording getRECORDING(){return RECORDING;}
+    private ChatChannels getChatChannels(){return chatChannels;}
+    private ChatMessages getChatMessages(){return chatMessages;}
+    private Meeting getMEETING(){return meeting;}
+    private Report getREPORT(){return report;}
+    private User getUSER(){return user;}
+    private Webinar getWEBINAR(){return webinar;}
+    private Recording getRECORDING(){return recording;}
 
 }
