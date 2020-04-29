@@ -17,7 +17,7 @@ public class ApiClient {
 
     private String BASE_URI;
     private int TIMEOUT;
-    private Throttle THROTTLE;
+    private Throttle throttle;
 
     public String TOKEN;
 
@@ -29,7 +29,7 @@ public class ApiClient {
     {
         BASE_URI = baseURI;
         TIMEOUT = timeout;
-        THROTTLE = new Throttle();
+        throttle = new Throttle();
     };
 
     //Get and Set BaseURI
@@ -73,8 +73,8 @@ public class ApiClient {
                 .build();
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        if(THROTTLE.check(response.statusCode())){
-            httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        if(throttle.check(response.statusCode())){
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         }
 
         //System.out.println("Sending GET request: " + request.toString());
@@ -105,8 +105,8 @@ public class ApiClient {
         //System.out.println("Sending POST request: " + request.toString());
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        if(THROTTLE.check(response.statusCode())){
-            httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        if(throttle.check(response.statusCode())){
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         }
         return response;
 
@@ -132,8 +132,8 @@ public class ApiClient {
         //System.out.println("Headers: " + request.headers());
         //System.out.println("Sending DELETE request: " + request.toString());
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        if(THROTTLE.check(response.statusCode())){
-            httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        if(throttle.check(response.statusCode())){
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         }
         return response;
 
@@ -162,8 +162,8 @@ public class ApiClient {
         //System.out.println("Sending PATCH request: " + request.toString());
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        if(THROTTLE.check(response.statusCode())){
-            httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        if(throttle.check(response.statusCode())){
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         }
         return response;
 
@@ -192,8 +192,8 @@ public class ApiClient {
         //System.out.println("Sending PUT request: " + request.toString());
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        if(THROTTLE.check(response.statusCode())){
-            httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        if(throttle.check(response.statusCode())){
+            response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         }
         return response;
 

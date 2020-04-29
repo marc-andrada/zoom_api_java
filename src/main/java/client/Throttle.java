@@ -10,9 +10,9 @@ public class Throttle {
 
         //System.out.println("Code: " + code);
         if(code == 429){
-            System.out.println("Code: " + code + " APPEARED! WAITING 2.5 SECONDS...");
-            Thread.sleep(2500);
-            System.out.println("RESENDING RESPONSE...SLOW DOWN NERD ;]");
+            //System.out.println("Code: " + code + " APPEARED! WAITING 3 SECONDS...");
+            Thread.sleep(3000);
+            //System.out.println("RESENDING RESPONSE...SLOW DOWN NERD ;]");
 
             return true;
         }

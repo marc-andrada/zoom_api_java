@@ -9,48 +9,48 @@ import java.net.URISyntaxException;
 public class ZoomOAuthClient extends ZoomClient{
 
     //Class Components
-    public ChatChannels CHAT_CHANNELS;
-    public ChatMessages CHAT_MESSAGES;
-    public User USER;
-    public Recording RECORDING;
-    public Report REPORT;
-    public Meeting MEETING;
-    public Webinar WEBINAR;
+    public ChatChannels chatChannels;
+    public ChatMessages chatMessages;
+    public User user;
+    public Recording recording;
+    public Report report;
+    public Meeting meeting;
+    public Webinar webinar;
 
 
     //Fields
-    private String CLIENT_ID;
-    private String CLIENT_SECRET;
+    private String clientID;
+    private String clientSecret;
     private int PORT;
-    private String REDIRECT_URI;
+    private String redirectURI;
     private String BROWSER_PATH;
-    private String ZOAC_TOKEN;
+    private String zoacToken;
 
     public ZoomOAuthClient(int timeout, String apiKey, String apiSecret, int port, String redirectURI, String browserPath) throws OAuthSystemException, OAuthProblemException, IOException, URISyntaxException {
         super(timeout, apiKey, apiSecret);
 
-        CLIENT_ID = apiKey;
-        CLIENT_SECRET = apiSecret;
+        clientID = apiKey;
+        clientSecret = apiSecret;
         TokenHandler tokenHandler = new TokenHandler();
-        ZOAC_TOKEN = tokenHandler.getOAuthToken(apiKey, apiSecret, redirectURI);
-        super.setApiClientToken(ZOAC_TOKEN);
+        zoacToken = tokenHandler.getOAuthToken(apiKey, apiSecret, redirectURI);
+        super.setApiClientToken(zoacToken);
         PORT = port;
-        REDIRECT_URI = redirectURI;
+        this.redirectURI = redirectURI;
         BROWSER_PATH = browserPath;
 
         //Component Access
-        USER = new User("https://api.zoom.us/v2", 15, ZOAC_TOKEN);
-        CHAT_CHANNELS = new ChatChannels("https://api.zoom.us/v2", 15, ZOAC_TOKEN);
-        CHAT_MESSAGES = new ChatMessages("https://api.zoom.us/v2", 15, ZOAC_TOKEN);
-        RECORDING = new Recording("https://api.zoom.us/v2", 15, ZOAC_TOKEN);
-        REPORT = new Report("https://api.zoom.us/v2", 15, ZOAC_TOKEN);
-        MEETING = new Meeting("https://api.zoom.us/v2", 15, ZOAC_TOKEN);
-        WEBINAR = new Webinar("https://api.zoom.us/v2", 15, ZOAC_TOKEN);
+        user = new User("https://api.zoom.us/v2", 15, zoacToken);
+        chatChannels = new ChatChannels("https://api.zoom.us/v2", 15, zoacToken);
+        chatMessages = new ChatMessages("https://api.zoom.us/v2", 15, zoacToken);
+        recording = new Recording("https://api.zoom.us/v2", 15, zoacToken);
+        report = new Report("https://api.zoom.us/v2", 15, zoacToken);
+        meeting = new Meeting("https://api.zoom.us/v2", 15, zoacToken);
+        webinar = new Webinar("https://api.zoom.us/v2", 15, zoacToken);
     }
 
     private void refreshToken() throws OAuthSystemException, OAuthProblemException, IOException {
         TokenHandler handler = new TokenHandler();
-        ZOAC_TOKEN = handler.getOAuthToken(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+        zoacToken = handler.getOAuthToken(clientID, clientSecret, redirectURI);
     }
 
 
