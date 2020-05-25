@@ -1,12 +1,23 @@
-# zoom_api_java MILESTONE 2
+# zoom_api_java
 
 Hello!
 
-**Build Instructions** 
+Bot for each milestone:
+
+Milestone 2 ~ TestBot.java
+
+Milestone 3 ~ TestBot2.java
+
+Milestone 4 ~ TestBot3.java
 
 [NOTE] This project was built using Gradle. Script found in root directory, build.gradle
 
 [NOTE] Make sure that your IDE or console is operating on jdk 11 or higher.
+
+[NOTE] Difficulty with ngrok uri? See workaround instructions at the bottom
+
+**Build Instructions** 
+
 1) On your command terminal move to the project directory /zoom_api_java
 
         Enter ./gradlew build
@@ -50,3 +61,17 @@ you can move to the directory /zoom_api_java/src/main/java/bots
 I was able to get the bot to run and perform functions using a combination of ngrok 
 tunneling on my command terminal and running TestBot.main() in my IDE. Please let me 
 know if there is any issues. I would be happy to demo in person via Zoom.
+
+**Difficulties with ngrok redirect?**
+
+Workaround:
+
+1) Run TestBot
+2) A tab in browser should appear stating "Invalid redirect: " + a url (containing ngrok.io at the end)
+3) If this is the case, please add this url to your developer's whitelist on Zoom's site (developer.zoom.us)
+4) Once this is successfully added, a link will be provided by the bot denoted by "Authorization request URI: ..."
+5) When you click the link, a browser will pop up asking for authorization before running the bot.
+6) If everything is good, once authorized, the bot should start up using that authorization request uri and proceed as normal.
+7) Please reach out if this method is unsuccessful! I am able to get it to work, but understand certain unique situations can arise.
+
+

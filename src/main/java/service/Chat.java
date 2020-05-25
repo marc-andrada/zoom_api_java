@@ -79,14 +79,6 @@ public class Chat {
 
             }
 
-            System.out.println("");
-            for (Message m : messageList) {
-                System.out.println("Message: \"" + m.getMessage() + "\"");
-                System.out.println("Sender: " + m.getSender());
-                System.out.println("Date Sent: " + m.getDateSent());
-                System.out.print("\n");
-            }
-
             return messageList;
         } else {
             System.out.println("Dates are not within the maximum range of " + MAX_DAY_RANGE);
@@ -108,14 +100,6 @@ public class Chat {
 
         }
 
-        System.out.println("");
-        for (Message m : matches) {
-            System.out.println("Message: \"" + m.getMessage() + "\"");
-            System.out.println("Sender: " + m.getSender());
-            System.out.println("Date Sent: " + m.getDateSent());
-            System.out.print("\n");
-        }
-
         return matches;
 
     }
@@ -130,10 +114,10 @@ public class Chat {
         for (Object c : channels) {
 
             if (((JSONObject) c).getString("name").equals(channelName)) {
-                System.out.println("Found channel " + channelName);
+                //System.out.println("Found channel " + channelName);
                 chanID = ((JSONObject) c).getString("id");
             } else {
-                System.out.println("Wasn't found...");
+                //System.out.println("Wasn't found...");
             }
         }
 

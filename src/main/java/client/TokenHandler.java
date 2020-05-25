@@ -81,8 +81,6 @@ public class TokenHandler {
 
         //return the token
         return client.accessToken(tokenRequest, OAuth.HttpMethod.POST, OAuthJSONAccessTokenResponse.class).getAccessToken();
-        //System.out.println("Token after getOAuthToken call: " + token);
-
 
     }
 

@@ -66,7 +66,7 @@ set CMD_LINE_ARGS=%*
 set CLASSPATH=%APP_HOME%\lib\zoom_api_java-1.0-SNAPSHOT.jar;%APP_HOME%\lib\gson-2.8.5.jar;%APP_HOME%\lib\ngrok-java-client-0.1-SNAPSHOT.jar;%APP_HOME%\lib\unirest-java-1.4.9.jar;%APP_HOME%\lib\httpasyncclient-4.1.1.jar;%APP_HOME%\lib\httpmime-4.5.2.jar;%APP_HOME%\lib\httpclient-4.5.12.jar;%APP_HOME%\lib\ini4j-0.5.1.jar;%APP_HOME%\lib\httpcore-nio-4.4.4.jar;%APP_HOME%\lib\httpcore-4.4.13.jar;%APP_HOME%\lib\org.apache.oltu.oauth2.client-1.0.2.jar;%APP_HOME%\lib\commons-logging-1.2.jar;%APP_HOME%\lib\org.apache.oltu.oauth2.common-1.0.2.jar;%APP_HOME%\lib\commons-codec-1.11.jar;%APP_HOME%\lib\slf4j-api-1.7.7.jar;%APP_HOME%\lib\json-20160212.jar
 
 @rem Execute zoom_api_java
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %ZOOM_API_JAVA_OPTS%  -classpath "%CLASSPATH%" bots.TestBot %CMD_LINE_ARGS%
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %ZOOM_API_JAVA_OPTS%  -classpath "%CLASSPATH%" bots.TestBot3 %CMD_LINE_ARGS%
 
 :end
 @rem End local scope for the variables with windows NT shell

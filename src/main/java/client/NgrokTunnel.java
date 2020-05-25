@@ -42,7 +42,7 @@ public class NgrokTunnel {
                 .body(payload)
                 .asJson();
         JSONObject obj = jsonResponse.getBody().getObject();
-        System.out.println(obj);
+        //System.out.println(obj);
         this.url = jsonResponse.getBody().getObject().getString("public_url");
     }
 
