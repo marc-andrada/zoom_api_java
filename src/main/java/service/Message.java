@@ -17,11 +17,37 @@ public class Message {
     }
 
     public String getSender(){
-        return message.getString("sender");
+        if(message.has("sender")){
+            return message.getString("sender");
+        }
+        else{ return ""; }
+
     }
 
     public String getDateSent(){
-        return message.getString("date_time");
+        if(message.has("date_time")){
+            return message.getString("date_time");
+        }
+        else{ return ""; }
+
     }
+
+    public String getMessageID(){
+        if(message.has("id")){
+            return message.getString("id");
+        }
+        else{ return ""; }
+    }
+
+    public String printMessage(){
+
+        String messageInfo =
+            "\nMessage: \"" + this.getMessage() + "\"" +
+            "\nSender: " + this.getSender() +
+            "\nDate Sent: " + this.getDateSent();
+
+        return messageInfo;
+    }
+
 
 }

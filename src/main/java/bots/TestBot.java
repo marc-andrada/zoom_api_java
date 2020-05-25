@@ -103,7 +103,7 @@ public class TestBot {
                 //Thread.sleep(2000);
                 channelID = in.nextLine();
                 System.out.println("Here are the members: ");
-                client.chatChannels.listMembers(channelID);
+                client.chatChannels.listMembers(channelID, null);
                 //Thread.sleep(2000);
 
                 //INVITE THEN REMOVE MEMBERS

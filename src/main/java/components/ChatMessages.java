@@ -39,8 +39,8 @@ public class ChatMessages extends Base{
 
         HttpResponse response = super.getRequest("/chat/users/"+userID+"/messages", nvp);
 
-        System.out.println("Status Code: " + response.statusCode());
-        System.out.println("Response Body: " + response.body());
+        /*System.out.println("Status Code: " + response.statusCode());
+        System.out.println("Response Body: " + response.body());*/
 
         return response.body().toString();
     }
@@ -54,8 +54,8 @@ public class ChatMessages extends Base{
 
         HttpResponse response = super.postRequest("/chat/users/me/messages", null, data);
 
-        System.out.println("Status Code: " + response.statusCode());
-        System.out.println("Response Body: " + response.body());
+        /*System.out.println("Status Code: " + response.statusCode());
+        System.out.println("Response Body: " + response.body());*/
 
     }
 
@@ -68,8 +68,8 @@ public class ChatMessages extends Base{
 
         HttpResponse response = super.putRequest("/chat/users/me/messages/"+messageID, null, data);
 
-        System.out.println("Status Code: " + response.statusCode());
-        System.out.println("Response Body: " + response.body());
+        /*System.out.println("Status Code: " + response.statusCode());
+        System.out.println("Response Body: " + response.body());*/
 
     }
 
@@ -93,8 +93,8 @@ public class ChatMessages extends Base{
 
         HttpResponse response = super.deleteRequest("/chat/users/me/messages/"+messageID, nvp, null);
 
-        System.out.println("Status Code: " + response.statusCode());
-        System.out.println("Response Body: " + response.body());
+        /*System.out.println("Status Code: " + response.statusCode());
+        System.out.println("Response Body: " + response.body());*/
 
     }
 

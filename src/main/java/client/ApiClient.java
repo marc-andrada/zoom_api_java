@@ -64,8 +64,6 @@ public class ApiClient {
             uriBuilder.addParameters(params);
         }
 
-        //System.out.println("Token in superclass: " + TOKEN);
-
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
                 .uri(URI.create(uriBuilder.toString()))
